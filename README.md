@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/cocoapods/l/UIToolBox.svg?style=flat)](https://cocoapods.org/pods/UIToolBox)
 [![Platform](https://img.shields.io/cocoapods/p/UIToolBox.svg?style=flat)](https://cocoapods.org/pods/UIToolBox)
 
-UIToolBox is a set of tools, extensions, and classes for developing UI for iOS in Swift. Many of the extensions are 'Missing Features' and more concise code for repetative tasks.
+UIToolBox is a set of tools, extensions, and classes for developing UI for iOS in Swift. Many of the extensions are Missing Features and easy to use helpers for creating readable code.
 
 The library breaks down into three major parts: 
 - **Auto Layout Extensions**: Easy to use extensions for creating and animating constraints.
