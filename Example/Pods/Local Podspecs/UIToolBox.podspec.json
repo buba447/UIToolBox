@@ -1,0 +1,22 @@
+{
+  "name": "UIToolBox",
+  "version": "0.1.0",
+  "summary": "A short description of UIToolBox.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/buba447/UIToolBox",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "buba447": "buba447@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/buba447/UIToolBox.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "UIToolBox/Classes/**/*"
+}

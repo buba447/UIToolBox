@@ -1,0 +1,16 @@
+PODS:
+  - UIToolBox (0.1.0)
+
+DEPENDENCIES:
+  - UIToolBox (from `../`)
+
+EXTERNAL SOURCES:
+  UIToolBox:
+    :path: ../
+
+SPEC CHECKSUMS:
+  UIToolBox: 831b077d3ac280f87163fc85e8d2d71d27a845a9
+
+PODFILE CHECKSUM: e3d886ab47066d2d6122d0e2091624d7f3cb615b
+
+COCOAPODS: 1.4.0

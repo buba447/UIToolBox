@@ -1,0 +1,6 @@
+framework module UIToolBox {
+  umbrella header "UIToolBox-umbrella.h"
+
+  export *
+  module * { export * }
+}

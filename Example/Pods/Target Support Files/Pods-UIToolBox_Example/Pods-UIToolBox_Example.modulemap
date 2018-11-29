@@ -1,0 +1,6 @@
+framework module Pods_UIToolBox_Example {
+  umbrella header "Pods-UIToolBox_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
