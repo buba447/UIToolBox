@@ -26,7 +26,8 @@ pod 'UIToolBox'
 ## Example
 
 ![Example](/images/Example.gif)
-Say we want to create a view that animates from the top to the bottom of the screen, while changing its size and color:
+
+Say we want to create a view that animates its position and size using AutoLayout:
 
 ```swift
 import UIKit
