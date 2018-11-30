@@ -2,7 +2,7 @@
 
 ## Documentation
 
-[Read the full documentation here](DOCUMENTATION.md)
+[Back to Readme](README.md)
 
 ### AutoLayout
 - [ConstraintGroup](#constraintgroup)
