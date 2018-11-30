@@ -2,17 +2,27 @@ import Foundation
 import UIKit
 
 /// A group of NSLayoutConstraints. This class provides quick and easy modification to a group of constraints. Typically used for AutoLayout based animations.
-public struct ConstraintGroup {
+public class ConstraintGroup {
   
-  /// Initialize with a group of constraints.
-  public init(constraints: [NSLayoutConstraint]) {
+  /// Initialize with a group of constraints. ##NOTE## Constaints initialize in the enabled state by default.
+  public init(constraints: [NSLayoutConstraint], enabled: Bool = true) {
     self.constraints = constraints
+    if enabled {
+      enable()
+    } else {
+      disable()
+    }
   }
   
   public let constraints: [NSLayoutConstraint]
   
+  public var isEnabled: Bool {
+    return _isEnabled
+  }
+  
   /// Enables all constraints in the group.
   public func enable() {
+    _isEnabled = true
     for constraint in constraints {
       constraint.isActive = true
     }
@@ -20,6 +30,7 @@ public struct ConstraintGroup {
   
   /// Disables all constraints in the group.
   public func disable() {
+    _isEnabled = false
     for constraint in constraints {
       constraint.isActive = false
     }
@@ -31,6 +42,8 @@ public struct ConstraintGroup {
       constraint.constant = constant
     }
   }
+  
+  var _isEnabled: Bool = true
 }
 
 public extension UIView {

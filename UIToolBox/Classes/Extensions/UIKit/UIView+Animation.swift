@@ -50,6 +50,38 @@ extension UIView {
       }, completion: completion)
     }
   }
+  
+  /// Auto animates the layout changes of a view using a set style.
+  public func animateLayoutChanges(style: UIViewAnimationStyle,
+                                   withAnimation: @escaping (() -> Void),
+                                   completion: ((Bool) -> Void)?) {
+    switch style.type {
+    case .easeIn:
+      UIView.animate(withDuration: style.speed, delay: 0, options: [UIView.AnimationOptions.curveEaseIn], animations: {
+        withAnimation()
+        self.layoutIfNeeded()
+      }, completion: completion)
+    case .easeOut:
+      UIView.animate(withDuration: style.speed, delay: 0, options: [UIView.AnimationOptions.curveEaseOut], animations: {
+        withAnimation()
+        self.layoutIfNeeded()
+      }, completion: completion)
+    case .spring:
+      UIView.animate(withDuration: style.speed,
+                     delay: 0,
+                     usingSpringWithDamping: 0.8,
+                     initialSpringVelocity: 0.1,
+                     options: [.curveEaseOut],
+                     animations: {
+                      withAnimation()
+                      self.layoutIfNeeded() },
+                     completion: completion)
+    case .easeInOut:
+      UIView.animate(withDuration: style.speed, delay: 0, options: [UIView.AnimationOptions.curveEaseInOut], animations: {
+        self.layoutIfNeeded()
+      }, completion: completion)
+    }
+  }
 }
 
 /// Describes a basic animation.
@@ -58,7 +90,7 @@ public class UIViewAnimationStyle {
   public var speed: Double = 0.4
 }
 
-extension UIViewAnimationStyle {
+public extension UIViewAnimationStyle {
   public static var standardEaseIn: UIViewAnimationStyle {
     let style = UIViewAnimationStyle()
     return style
@@ -112,7 +144,7 @@ extension UIViewAnimationStyle {
   public static var slowSpring: UIViewAnimationStyle {
     let style = UIViewAnimationStyle()
     style.type = .spring
-    style.speed = 0.4
+    style.speed = 0.8
     return style
   }
 }

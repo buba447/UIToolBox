@@ -14,52 +14,82 @@ class ColorDemoViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    /// Create a color with Hue Saturation and Brightness
+    let color = UIColor(hue: 0.5, saturation: 1, brightness: 1, alpha: 1)
     
-    let color = UIColor.orange
+    /// Set the view background color to be a dark complementary color.
+    view.backgroundColor = color.complementary.withBrightness(brightness: 0.2)
     
-    let firstGroup = makeColorSquares(color: color)
-    view.addSubview(firstGroup)
-    firstGroup.pinTopToMargin()
-    firstGroup.pinToLeading()
+    /// Create a view with the color
+    let colorView = UIView(backgroundColor: color)
+    colorView.cornerRadius = 12
+    view.addSubview(colorView)
     
-    let secondGroup = makeColorSquares(color: color.triadic.left)
-    view.addSubview(secondGroup)
-    secondGroup.pinToLeading()
-    secondGroup.pinBelowView(firstGroup)
     
-    let thirdGroup = makeColorSquares(color: color.triadic.right)
-    view.addSubview(thirdGroup)
-    thirdGroup.pinToLeading()
-    thirdGroup.pinBelowView(secondGroup)
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    /// Make a constraint group that pins the colorView to the top, leading and traling, with a height of 50
+    let topConstraint = ConstraintGroup(constraints: [
+      colorView.alignTopToView(view),
+      colorView.constrainHeight(50),
+      colorView.alignLeadingToView(view),
+      colorView.alignTrailingToView(view)
+      ])
+    
+    /// Make a constraint group that pins the colorView to the bottom, leading and trailing with a padding of 20, and a height of 72
+    let bottomConstraint = ConstraintGroup(constraints: [
+      colorView.alignBottomToView(view, constant: 30),
+      colorView.constrainHeight(72),
+      colorView.alignLeadingToView(view, constant: 20),
+      colorView.alignTrailingToView(view, constant: 20)
+      ])
+    
+    /// Set the top constraint to enabled, the bottom to disabled.
+    topConstraint.enable()
+    bottomConstraint.disable()
+    view.layoutIfNeeded()
+    
+    
+    self.topConstraint = topConstraint
+    self.bottomConstraint = bottomConstraint
+    
+    self.colorView = colorView
+
   }
   
-  func makeColorSquares(color: UIColor) -> UIView {
-    let wrapper = UIView()
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
     
-    let firstSquare = UIView(backgroundColor: color)
-    let secondSquare = UIView(backgroundColor: color.complementary)
-    let thirdSquare = UIView(backgroundColor: color.analagous.left)
-    wrapper.addSubview(firstSquare)
-    wrapper.addSubview(secondSquare)
-    wrapper.addSubview(thirdSquare)
-    
-    firstSquare.pinToTop()
-    firstSquare.pinToLeading()
-    firstSquare.pinToBottom()
-    firstSquare.constrainSize(CGSize(width: 100, height: 100))
-    
-    secondSquare.pinLeadingToView(firstSquare)
-    secondSquare.constrainSize(CGSize(width: 100, height: 100))
-    secondSquare.alignTopToView(firstSquare)
-    
-    thirdSquare.pinLeadingToView(secondSquare)
-    thirdSquare.constrainSize(CGSize(width: 100, height: 100))
-    thirdSquare.alignTopToView(secondSquare)
-    thirdSquare.pinToTrailing()
-    
-    return wrapper
+    /// Now lets animate from one constraint group to another with a spring animation.
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+      self.toggleAnimation()
+    }
+
   }
+  
+  func toggleAnimation() {
+    if (self.topConstraint?.isEnabled)! {
+      self.topConstraint?.disable()
+      self.bottomConstraint?.enable()
+    } else {
+      self.topConstraint?.enable()
+      self.bottomConstraint?.disable()
+    }
+    
+    self.view.animateLayoutChanges(
+      style: .slowSpring,
+      withAnimation: {
+        /// Animate the background color to its complementary.
+        self.colorView?.backgroundColor = self.colorView?.backgroundColor?.complementary
+    }) { (complete) in
+      /// Animation complete!
+      self.toggleAnimation()
+    }
+  }
+  
+  
+  var topConstraint: ConstraintGroup?
+  var bottomConstraint: ConstraintGroup?
+  var colorView: UIView?
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
