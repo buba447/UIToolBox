@@ -72,7 +72,7 @@ view.layoutIfNeeded()
 topConstraint.disable()
 bottomConstraint.enable()
 view.animateLayoutChanges(
-style: .fastSpring,
+style: .slowSpring,
 withAnimation: {
 /// Animate the background color to its complementary.
 colorView.backgroundColor = color.complementary
