@@ -238,7 +238,7 @@ public extension UIView {
     if let superview = superview {
       let group = ConstraintGroup(constraints: [
       leadingAnchor.constraint(equalTo: superview.layoutMarginsGuide.leadingAnchor, constant: constant),
-      trailingAnchor.constraint(equalTo: superview.layoutMarginsGuide.trailingAnchor, constant: constant)
+      trailingAnchor.constraint(equalTo: superview.layoutMarginsGuide.trailingAnchor, constant: -constant)
       ])
       group.enable()
       return group
