@@ -66,7 +66,7 @@
 		745AC0AC03CE2C0708177A1E2027AC67 /* Pods-UIToolBox_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-UIToolBox_Example-frameworks.sh"; sourceTree = "<group>"; };
 		798C73762306AD8A742B6E58C18AF701 /* Pods-UIToolBox_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-UIToolBox_Tests-dummy.m"; sourceTree = "<group>"; };
 		8038FC82B59DEA3CD00F68AA12CC1D7B /* UIButton+Icon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIButton+Icon.swift"; sourceTree = "<group>"; };
-		820801A44B8B8ACD3AF40387D4FD966E /* UIToolBox.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = UIToolBox.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		820801A44B8B8ACD3AF40387D4FD966E /* UIToolBox.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = UIToolBox.podspec; sourceTree = "<group>"; };
 		85FCC2280BE03C9A2ABBD285EEF8C65B /* Pods-UIToolBox_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-UIToolBox_Tests.modulemap"; sourceTree = "<group>"; };
 		8C28FE31E7B73EC5520CB032D53FF5D6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };

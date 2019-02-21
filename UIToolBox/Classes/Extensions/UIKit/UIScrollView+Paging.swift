@@ -14,7 +14,7 @@ public enum ScrollDimension {
   case height
 }
 
-extension UIScrollView {
+public extension UIScrollView {
   
   /// The Current scrollable dimension
   public var scrollDimension: ScrollDimension {
@@ -63,7 +63,7 @@ extension UIScrollView {
   
 }
 
-extension UIScrollView {
+public extension UIScrollView {
   
   /// The current visible rect of the scrollview
   public var visibleRect: CGRect {
