@@ -53,6 +53,7 @@ public extension UITableView {
     self.tableFooterView = footer
     footer.setNeedsLayout()
     footer.layoutIfNeeded()
+    footer.frame.size = footer.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
     self.tableFooterView = footer
   }
 }
